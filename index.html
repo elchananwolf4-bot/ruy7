@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#102c35">
+  <meta name="description" content="אפליקציית לימוד אינטראקטיבית לחובש בכיר: נתיב אוויר, חמצון, סטורציה וקפנוגרפיה.">
+  <title>Airway Lab | לומדים וזוכרים</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Airway Lab - ראשי">
+        <span class="brand-mark">A<span>+</span></span>
+        <span class="brand-copy"><strong>Airway Lab</strong><small>לומדים. מתרגלים. זוכרים.</small></span>
+      </a>
+      <div class="top-actions">
+        <span class="save-indicator" id="saveIndicator"><i></i> נשמר במכשיר</span>
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="החלפת ערכת נושא" title="החלפת ערכת נושא">◐</button>
+      </div>
+    </header>
+
+    <main id="appMain">
+      <section class="view active" id="homeView" aria-labelledby="welcomeTitle">
+        <div class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">מרכז הלמידה שלך</p>
+            <h1 id="welcomeTitle">מוכנים לשלוט<br><em>בנתיב האוויר?</em></h1>
+            <p class="hero-text">תוכנית חזרה ממוקדת לערב שלפני המבחן: לפי הסיכום שסיפקת, עם שליפה, מבחן והדגמות.</p>
+            <button class="primary-btn" id="startStudyBtn" type="button">מתחילים ללמוד <span>←</span></button>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+            <div class="art-core"><span>Et</span><b>CO₂</b></div>
+            <span class="art-dot dot-one"></span><span class="art-dot dot-two"></span><span class="art-dot dot-three"></span>
+            <div class="art-label label-a">O₂ <small>חמצון</small></div>
+            <div class="art-label label-b">CO₂ <small>אוורור</small></div>
+          </div>
+        </div>
+
+        <section class="safety-strip" aria-label="הערת בטיחות חשובה">
+          <span class="safety-icon">!</span>
+          <div><strong>לומדים למבחן — לא מחליפים פרוטוקול קליני</strong><p>סמכויות, מינונים, התוויות ואלגוריתמים חייבים להתאים להנחיות איחוד הצלה ולהוראות המדריך. האפליקציה אינה כלי לקבלת החלטות בזמן טיפול.</p></div>
+          <button class="text-btn" data-goto="accuracyView" type="button">לחומר המקור של הקורס</button>
+        </section>
+
+        <section class="exam-cram" aria-labelledby="cramTitle">
+          <div class="cram-head"><div><p class="eyebrow">תוכנית ממוקדת למבחן של מחר</p><h2 id="cramTitle">לא לומדים הכול מחדש — שולפים, מתקנים וישנים</h2><p>התוכנית מתאימה לערב שלפני המבחן ולחזרה קצרה בבוקר. סמני כל מקטע שסיימת; הסימונים נשמרים במכשיר.</p></div><span class="cram-badge">מחר · 4.11</span></div>
+          <div class="cram-grid">
+            <article class="cram-step"><span class="cram-time">עכשיו · 35 דקות</span><h3>סיבוב ראשון: שבעת הנושאים</h3><p>עברו על כותרות הסיכומים בלבד. בכל נושא עצרי ונסי לומר בקול 3–5 עובדות מהזיכרון.</p><label><input type="checkbox" data-cram="1"> סיימתי</label></article>
+            <article class="cram-step"><span class="cram-time">הפסקה · 10 דקות</span><h3>קמים, שותים, בלי מסך</h3><p>תני למוח הפסקה קצרה. לא פותחים חומר חדש.</p><label><input type="checkbox" data-cram="2"> סיימתי</label></article>
+            <article class="cram-step"><span class="cram-time">45 דקות</span><h3>נקודות שחייבות שליפה</h3><p>תרגלי סמכויות, OPA, מדידות, ציוד, תרופות, אלגוריתם LMA וגל קפנוגרפיה. כל טעות — חוזרים רק על אותה נקודה.</p><label><input type="checkbox" data-cram="3"> סיימתי</label></article>
+            <article class="cram-step"><span class="cram-time">20–25 דקות</span><h3>מבחן מעורב</h3><p>עשי מבחן של 20 שאלות בלי להיעזר בסיכום. קראי הסברים גם כשניחשת נכון.</p><label><input type="checkbox" data-cram="4"> סיימתי</label></article>
+            <article class="cram-step"><span class="cram-time">15 דקות</span><h3>תיקון טעויות בלבד</h3><p>כתבי לעצמך 5 דברים שהתבלבלת בהם. אל תתחילי עכשיו פרק חדש.</p><label><input type="checkbox" data-cram="5"> סיימתי</label></article>
+            <article class="cram-step morning"><span class="cram-time">בבוקר · 20 דקות</span><h3>חזרה רגועה לפני היציאה</h3><p>10 דקות כרטיסיות שטעית בהן, 5 דקות מספרים/הגדרות מהסיכום, ו-5 דקות רצף אלגוריתמים. לעצור לפני המבחן — לא לדחוס חומר חדש.</p><label><input type="checkbox" data-cram="6"> סיימתי</label></article>
+          </div>
+          <div class="cram-rule"><strong>שעת שינה חשובה יותר מעוד סבב עייף.</strong> כווני לסיים את הלמידה עד 22:00–22:30, להכין ציוד למחר ולישון. אם המבחן לא בבוקר, בצעי את מקטע הבוקר כשעה–שעתיים לפני היציאה.</div>
+          <div class="cram-actions"><button class="primary-btn" id="cramCardsBtn" type="button">התחלת חזרה ממוקדת ←</button><button class="quiet-btn" id="cramQuizBtn" type="button">מבחן 20 שאלות</button></div>
+        </section>
+        <section class="demo-section"><div class="section-heading"><div><p class="eyebrow">הדגמות לזכירה מהירה</p><h2>לראות את הרצף, לא רק לקרוא</h2></div></div>
+          <details class="demo-card" open><summary>תרשים החלטה לפי הסיכום: BLS והערכה מחדש</summary><div class="flow-demo"><div>פתיחת נתיב + סקשן + OPA לפי התאמה + BVM וחמצן</div><b>↓ לאחר 2 דקות: הערכה מחדש</b><div class="flow-branches"><div><strong>יש שיפור / אין מטפל מנוסה</strong><span>המשך BLS והערכה חוזרת</span></div><div><strong>אין שיפור ויש מטפל ALS מנוסה</strong><span>שקילת מעבר ל-ALS לפי התוויות והסמכות</span></div></div></div></details>
+          <details class="demo-card"><summary>הדגמת גל קפנוגרפיה: מה מייצגות הנקודות?</summary><div class="capno-demo"><svg viewBox="0 0 340 135" role="img" aria-label="תרשים סכמטי של גל קפנוגרפיה"><path d="M12 112 H328 M12 15 V112" stroke="currentColor" opacity=".3" fill="none"/><path d="M15 110 L85 110 L105 104 L125 38 L145 28 L225 28 L250 30 L270 110 L325 110" fill="none" stroke="#20a894" stroke-width="4" stroke-linejoin="round"/><g fill="currentColor" font-size="11"><text x="22" y="127">A–B</text><text x="92" y="127">B–C</text><text x="166" y="19">C–D · ETCO₂</text><text x="275" y="127">D–E</text></g></svg><p><strong>A–B:</strong> שאיפה וקו בסיס קרוב לאפס. <strong>B–C:</strong> תחילת נשיפה ועלייה. <strong>C–D:</strong> פלטו אלבאולרי; בקצה הנשיפה נמדד ETCO₂. <strong>D–E:</strong> ירידה עם תחילת שאיפה.</p></div></details>
+          <details class="demo-card"><summary>הבדל לזכירה: חמצון לעומת אוורור</summary><div class="compare-demo"><div><strong>O₂ · חמצון</strong><span>הכנסת חמצן לדם והעברתו לרקמות.</span><b>מדד עיקרי: SpO₂</b></div><div><strong>CO₂ · אוורור</strong><span>סילוק פחמן דו-חמצני בנשיפה.</span><b>מדד: ETCO₂ / קפנוגרפיה</b></div></div></details>
+        </section>
+        <div class="section-heading"><div><p class="eyebrow">ההתקדמות שלך</p><h2>המספרים של היום</h2></div><span class="muted" id="todayLabel"></span></div>
+        <div class="stats-grid">
+          <article class="stat-card"><span class="stat-icon teal">◷</span><strong id="dueCount">0</strong><small>כרטיסיות לחזרה</small></article>
+          <article class="stat-card"><span class="stat-icon violet">✓</span><strong id="learnedCount">0</strong><small>כרטיסיות שכבר תרגלת</small></article>
+          <article class="stat-card"><span class="stat-icon amber">◎</span><strong id="bestScore">—</strong><small>תוצאה אחרונה במבחן</small></article>
+        </div>
+
+        <div class="section-heading"><div><p class="eyebrow">תוכן הקורס</p><h2>שבע תחנות בדרך לשליטה</h2></div><button class="text-btn" data-goto="libraryView" type="button">לכל החומר ←</button></div>
+        <div class="topic-grid" id="topicGrid"></div>
+
+        <div class="bottom-tip"><span class="tip-spark">✦</span><div><strong>טיפ למידה קטן</strong><p>נסי לענות לפני שהופכים את הכרטיס. המאמץ לשלוף את התשובה הוא חלק מהלמידה.</p></div></div>
+      </section>
+
+      <section class="view" id="studyView" aria-labelledby="studyTitle">
+        <div class="view-heading"><div><p class="eyebrow">תרגול שליפה</p><h1 id="studyTitle">כרטיסיות חכמות</h1><p class="subheading">קודם חושבים, אחר כך הופכים. כך מגלים מה באמת נזכר.</p></div><button class="quiet-btn" data-goto="homeView" type="button">חזרה לראשי</button></div>
+        <div class="study-toolbar">
+          <label class="select-wrap"><span>נושא</span><select id="studyTopic"><option value="all">כל הנושאים</option></select></label>
+          <div class="session-count" id="sessionCount">טוען כרטיסיות…</div>
+        </div>
+        <div class="study-progress"><div class="progress-track"><span id="studyProgressFill"></span></div><span id="studyProgressText">0 / 0</span></div>
+        <div class="flashcard-wrap" id="flashcardWrap">
+          <article class="flashcard" id="flashcard">
+            <div class="card-topline"><span id="cardTopic" class="topic-pill">נושא</span><span class="card-index" id="cardIndex">01</span></div>
+            <div class="card-question-area"><span class="question-label">נסי לשלוף מהזיכרון</span><h2 id="cardQuestion">טוען…</h2></div>
+            <div class="card-answer" id="cardAnswer" hidden><div class="answer-divider"><span>התשובה</span></div><p id="cardAnswerText"></p><div class="memory-note" id="cardNote" hidden></div></div>
+            <div class="card-bottom"><span class="flip-hint" id="flipHint">אין צורך למהר — תני למוח לנסות.</span><button class="reveal-btn" id="revealBtn" type="button">הצגת התשובה <span>↘</span></button></div>
+          </article>
+        </div>
+        <div class="rating-actions" id="ratingActions" hidden>
+          <p>איך הלך לך בלי להסתכל?</p><p class="subheading">מצב מבחן למחר: החזרות נקבעות בדקות ובשעות, לא בימים.</p>
+          <div class="rating-row"><button class="rating-btn again" data-rating="again" type="button"><b>↻</b><strong>לא ידעתי</strong><small>בעוד 3 דקות</small></button><button class="rating-btn hard" data-rating="hard" type="button"><b>≈</b><strong>בערך</strong><small>בעוד 15 דקות</small></button><button class="rating-btn easy" data-rating="easy" type="button"><b>✓</b><strong>ידעתי</strong><small>בעוד 45 דקות או יותר</small></button></div>
+        </div>
+        <div class="study-empty" id="studyEmpty" hidden><div class="empty-icon">✦</div><h2>סיימת את החזרות להיום!</h2><p>מעולה — אין כרטיסיות שממתינות כרגע. הכרטיסיות שסומנו לחזרה יופיעו שוב בעוד דקות או שעות, ולא בעוד ימים.</p><button class="primary-btn" data-goto="quizView" type="button">למבחן קצר ←</button><button class="text-btn" id="showAllCardsBtn" type="button">בכל זאת להמשיך לתרגל</button></div>
+      </section>
+
+      <section class="view" id="quizView" aria-labelledby="quizTitle">
+        <div class="view-heading"><div><p class="eyebrow">בדיקת ידע</p><h1 id="quizTitle">מבחן קצר וחכם</h1><p class="subheading">שאלות מעורבות, הסברים, ומעקב אחר נושאים שכדאי לחזק.</p></div><button class="quiet-btn" data-goto="homeView" type="button">חזרה לראשי</button></div>
+        <div class="quiz-setup" id="quizSetup">
+          <div class="setup-intro"><div class="setup-icon">?</div><div><h2>איך תרצי להיבחן?</h2><p>אפשר להתחיל בקטן ולעלות בהדרגה.</p></div></div>
+          <label class="select-wrap"><span>בחירת נושא</span><select id="quizTopic"><option value="all">כל הנושאים</option></select></label>
+          <div class="choice-label">מספר שאלות</div>
+          <div class="choice-pills" id="quizLength"><button class="choice-pill active" data-count="10" type="button">10 שאלות</button><button class="choice-pill" data-count="20" type="button">20 שאלות</button><button class="choice-pill" data-count="all" type="button">כל השאלות</button></div>
+          <button class="primary-btn full-width" id="beginQuizBtn" type="button">מתחילים מבחן <span>←</span></button>
+          <p class="setup-footnote">אין הגבלת זמן. עדיף להבין את ההסבר מאשר לנחש מהר.</p>
+        </div>
+        <div class="quiz-stage" id="quizStage" hidden>
+          <div class="quiz-meta"><span id="quizTopicLabel">כל הנושאים</span><span id="quizQuestionNo">שאלה 1 מתוך 10</span></div>
+          <div class="study-progress"><div class="progress-track"><span id="quizProgressFill"></span></div></div>
+          <article class="question-panel"><h2 id="quizQuestionText"></h2><div class="answers-list" id="answersList"></div><div class="feedback-panel" id="feedbackPanel" hidden></div></article>
+          <div class="quiz-footer"><span id="quizScoreLive">נכונות: 0</span><button class="primary-btn" id="nextQuestionBtn" type="button" disabled>השאלה הבאה ←</button></div>
+        </div>
+        <div class="quiz-results" id="quizResults" hidden></div>
+      </section>
+
+      <section class="view" id="libraryView" aria-labelledby="libraryTitle">
+        <div class="view-heading"><div><p class="eyebrow">דפי חזרה</p><h1 id="libraryTitle">החומר מסודר בראש</h1><p class="subheading">סיכומי ליבה קצרים לפי נושא, עם מילות מפתח לזכירה.</p></div><button class="quiet-btn" data-goto="homeView" type="button">חזרה לראשי</button></div>
+        <div class="search-box"><span>⌕</span><input id="librarySearch" type="search" placeholder="חיפוש מונח, פעולה או מדד…" aria-label="חיפוש בחומר הלימוד"><kbd>חיפוש</kbd></div>
+        <div class="library-layout"><nav class="library-nav" id="libraryNav" aria-label="נושאי הלימוד"></nav><div class="library-content" id="libraryContent"></div></div>
+      </section>
+
+      <section class="view" id="accuracyView" aria-labelledby="accuracyTitle">
+        <div class="view-heading"><div><p class="eyebrow">דף נתונים לשינון</p><h1 id="accuracyTitle">מספרים ודגשים מהסיכום שלך</h1><p class="subheading">ריכזתי כאן את המספרים, ההגדרות והדגשים שמופיעים בחומר המקורי שסיפקת — כדי שתוכלי לשלוף אותם במהירות לפני המבחן.</p></div><button class="quiet-btn" data-goto="homeView" type="button">חזרה לראשי</button></div>
+        <div class="accuracy-banner"><strong>חשוב:</strong> הדף הזה מיועד לשינון למבחן לפי הסיכום שסיפקת. בפרקטיקה קלינית פועלים תמיד לפי הכשרה, מדריך ונהלי הארגון.</div>
+        <div class="accuracy-list" id="accuracyList"></div>
+
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="ניווט ראשי">
+      <button class="nav-item active" data-goto="homeView" type="button"><span>⌂</span><small>ראשי</small></button>
+      <button class="nav-item" data-goto="studyView" type="button"><span>▤</span><small>כרטיסיות</small></button>
+      <button class="nav-item" data-goto="quizView" type="button"><span>✓</span><small>מבחן</small></button>
+      <button class="nav-item" data-goto="libraryView" type="button"><span>☷</span><small>סיכומים</small></button>
+    </nav>
+    <footer class="site-footer"><span>Airway Lab</span><span>נבנה ללמידה אחראית · לא לשימוש קליני</span><button id="resetProgressBtn" type="button">איפוס התקדמות</button></footer>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>

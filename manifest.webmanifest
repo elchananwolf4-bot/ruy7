@@ -1,0 +1,12 @@
+{
+  "name": "Airway Lab — לימוד נתיב אוויר",
+  "short_name": "Airway Lab",
+  "lang": "he",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f8f6",
+  "theme_color": "#102c35",
+  "description": "כרטיסיות, מבחנים וחזרות מרווחות ללימוד נתיב אוויר, חמצון וקפנוגרפיה."
+}
